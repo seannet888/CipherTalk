@@ -108,6 +108,7 @@ export interface SessionQAOptions {
   enableThinking?: boolean
   agentDecisionMaxTokens?: number
   agentAnswerMaxTokens?: number
+  signal?: AbortSignal
 }
 
 export interface SessionQAResult {
@@ -1168,6 +1169,7 @@ ${detailInstructions[detail as keyof typeof detailInstructions] || detailInstruc
       enableThinking: options.enableThinking,
       agentDecisionMaxTokens,
       agentAnswerMaxTokens,
+      signal: options.signal,
       onStreamEvent,
       onProgress
     })
